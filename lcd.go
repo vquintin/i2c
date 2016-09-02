@@ -3,10 +3,7 @@ package i2c
 // i2c LCD adapter
 // Adapted from http://think-bowl.com/raspberry-pi/installing-the-think-bowl-i2c-libraries-for-python/
 
-import (
-	"log"
-	"time"
-)
+import "time"
 
 const (
 	// Commands
@@ -77,7 +74,6 @@ func (lcd *Lcd) enable(data byte) {
 	} else {
 		data = pinInterpret(lcd.backlight, data, false)
 	}
-	log.Printf("%#x", data)
 	lcd.i2c.WriteByte(data)
 	time.Sleep(500 * time.Microsecond)
 	lcd.i2c.WriteByte(pinInterpret(lcd.en, data, true))
