@@ -53,8 +53,6 @@ func NewLcd(i2c *I2C, en, rw, rs, d4, d5, d6, d7, backlight byte) (*Lcd, error) 
 	time.Sleep(200 * time.Millisecond)
 	lcd.enable(data)
 	time.Sleep(100 * time.Millisecond)
-	lcd.enable(data)
-	time.Sleep(100 * time.Millisecond)
 
 	// Initialize 4-bit mode
 	data = pinInterpret(lcd.d4, data, false)
