@@ -75,7 +75,9 @@ func (lcd *Lcd) enable(data byte) {
 		data = pinInterpret(lcd.backlight, data, false)
 	}
 	lcd.i2c.WriteByte(data)
+	time.Sleep(500 * time.Microsecond)
 	lcd.i2c.WriteByte(pinInterpret(lcd.en, data, true))
+	time.Sleep(100 * time.Microsecond)
 	lcd.i2c.WriteByte(data)
 }
 
