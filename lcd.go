@@ -62,10 +62,10 @@ func NewLcd(i2c *I2C, en, rw, rs, d4, d5, d6, d7, backlight byte) (*Lcd, error) 
 	lcd.enable(data)
 	time.Sleep(10 * time.Millisecond)
 
-	//lcd.command(CMD_Function_Set | OPT_2_Lines)
-	//lcd.command(CMD_Display_Control | OPT_Enable_Display | OPT_Enable_Cursor)
+	lcd.command(CMD_Function_Set | OPT_2_Lines)
+	lcd.command(CMD_Display_Control | OPT_Enable_Display | OPT_Enable_Cursor)
 	lcd.command(CMD_Clear_Display)
-	//lcd.command(CMD_Entry_Mode | OPT_Increment | OPT_Display_Shift)
+	lcd.command(CMD_Entry_Mode | OPT_Increment | OPT_Display_Shift)
 
 	return &lcd, nil
 }
